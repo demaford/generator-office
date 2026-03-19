@@ -2,6 +2,7 @@ import chalk from "chalk";
 
 export const configurationErrorEventName = "configuration-error-generator-office";
 export const copyFilesErrorEventName = "copy-files-error-generator-office";
+export const generalSideloadingSteps = "https://learn.microsoft.com/office/dev/add-ins/testing/sideload-office-add-ins-for-testing";
 export const installDependenciesErrorEventName = "install-dependencies-error-generator-office";
 export const networkShareSideloadingSteps = "https://learn.microsoft.com/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins";
 export const outlookSideloadingSteps = "https://learn.microsoft.com/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing";
