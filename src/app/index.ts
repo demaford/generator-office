@@ -433,9 +433,8 @@ export default class extends Generator {
       } else {
         await this.log(`      ${stepNumber++}. Start the local web server:\n`);
         await this.log(`         ${chalk.bold('npm run dev-server')}\n`);
-        await this.log(`      ${stepNumber++}. Sideload the the add-in:\n`);
-        await this.log(`         ${chalk.bold('Follow these instructions:')}`);
-        await this.log(`         ${defaults.networkShareSideloadingSteps}\n`);
+        await this.log(`      ${stepNumber++}. Sideload the add-in:\n`);
+        await this.log(`         Please visit ${defaults.networkShareSideloadingSteps} for sideloading instructions.\n`);
       }
     }
 
@@ -506,6 +505,9 @@ export default class extends Generator {
   }
 
   _exitProcess(): void {
-    process.exit();
+    // Ensure all output is flushed before exiting
+    process.stdout.write('', () => {
+      process.exit();
+    });
   }
 };
