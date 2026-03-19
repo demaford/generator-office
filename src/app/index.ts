@@ -434,7 +434,7 @@ export default class extends Generator {
         await this.log(`      ${stepNumber++}. Start the local web server:\n`);
         await this.log(`         ${chalk.bold('npm run dev-server')}\n`);
         await this.log(`      ${stepNumber++}. Sideload the add-in:\n`);
-        await this.log(`         Please visit ${defaults.generalSideloadingSteps} for sideloading instructions.\n`);
+        await this.log(`         Please visit ${defaults.networkShareSideloadingSteps} for sideloading instructions.\n`);
       }
     }
 
