@@ -142,44 +142,8 @@
                 }
             }
         },
-        "single-sign-on": {
-            "displayname": "Office Add-in Task Pane project supporting single sign-on",
-            "templates": {
-                "javascript": {
-                    "repository": "https://github.com/OfficeDev/Office-Addin-TaskPane-SSO-JS",
-                    "branch": "release"
-                },
-                "typescript": {
-                    "repository": "https://github.com/OfficeDev/Office-Addin-Taskpane-SSO",
-                    "branch": "release"
-                }
-            },
-            "supportedHosts": {
-                "Excel": {
-                    "supportedManifestTypes": [
-                        "xml"
-                    ]
-                },
-                "Outlook": {
-                    "supportedManifestTypes": [
-                        "xml",
-                        "json"
-                    ]
-                },
-                "Powerpoint": {
-                    "supportedManifestTypes": [
-                        "xml"
-                    ]
-                },
-                "Word": {
-                    "supportedManifestTypes": [
-                        "xml"
-                    ]
-                }
-            }
-        },
         "nested-app-auth": {
-            "displayname": "Office Add-in Task Pane project supporting Nested App Auth single sign-on (preview)",
+            "displayname": "Office Add-in Task Pane project supporting Nested App Auth single sign-on",
             "templates": {
                 "typescript": {
                     "repository": "https://github.com/OfficeDev/Office-Addin-TaskPane-SSO-NAA",
