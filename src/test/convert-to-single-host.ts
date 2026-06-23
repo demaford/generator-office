@@ -39,9 +39,9 @@ describe('Projects configured with proxy', () => {
         packageJsonFile, 
         manifestXmlFile, 
         'src/taskpane/taskpane.ts', 
+        'src/taskpane/excel.ts',
     ]
     const unexpectedFiles = [
-        'src/taskpane/excel.ts', 
         'src/taskpane/onenote.ts', 
         'src/taskpane/outlook.ts', 
         'src/taskpane/powerpoint.ts', 
@@ -52,7 +52,8 @@ describe('Projects configured with proxy', () => {
         projectType: "taskpane", 
         scriptType: "TypeScript", 
         name: testProjectName, 
-        host: hosts[0]
+        host: hosts[0],
+        manifestType: "xml"
     };
 
     before((done) => {
@@ -83,14 +84,14 @@ describe('Projects configured with proxy', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -108,9 +109,9 @@ describe('Office-Addin-Taskpane-Ts projects', () => {
         packageJsonFile, 
         manifestXmlFile, 
         'src/taskpane/taskpane.ts', 
+        'src/taskpane/excel.ts',
     ]
     const unexpectedFiles = [
-        'src/taskpane/excel.ts', 
         'src/taskpane/onenote.ts', 
         'src/taskpane/outlook.ts', 
         'src/taskpane/powerpoint.ts', 
@@ -121,7 +122,8 @@ describe('Office-Addin-Taskpane-Ts projects', () => {
         projectType: "taskpane", 
         scriptType: "TypeScript", 
         name: testProjectName, 
-        host: hosts[0]
+        host: hosts[0],
+        manifestType: "xml"
     };
 
     before((done) => {
@@ -141,14 +143,14 @@ describe('Office-Addin-Taskpane-Ts projects', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -166,9 +168,9 @@ describe('Office-Addin-Taskpane-Ts prerelease projects', () => {
         packageJsonFile, 
         manifestXmlFile, 
         'src/taskpane/taskpane.ts', 
+        'src/taskpane/excel.ts',
     ]
     const unexpectedFiles = [
-        'src/taskpane/excel.ts', 
         'src/taskpane/onenote.ts', 
         'src/taskpane/outlook.ts', 
         'src/taskpane/powerpoint.ts', 
@@ -179,7 +181,8 @@ describe('Office-Addin-Taskpane-Ts prerelease projects', () => {
         projectType: "taskpane", 
         scriptType: "TypeScript", 
         name: testProjectName, 
-        host: hosts[0]
+        host: hosts[0],
+        manifestType: "xml"
     };
 
     before((done) => {
@@ -199,14 +202,14 @@ describe('Office-Addin-Taskpane-Ts prerelease projects', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
     it('Manifest.xml is updated appropriately', async () => {
         const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestXmlFile);
@@ -223,11 +226,11 @@ describe('Office-Addin-Taskpane-Ts Outlook json project', () => {
         packageJsonFile, 
         manifestJsonFile, 
         'src/taskpane/taskpane.ts', 
+        'src/taskpane/outlook.ts',
     ]
     const unexpectedFiles = [
         'src/taskpane/excel.ts', 
         'src/taskpane/onenote.ts', 
-        'src/taskpane/outlook.ts', 
         'src/taskpane/powerpoint.ts', 
         'src/taskpane/project.ts', 
         'src/taskpane/word.ts'
@@ -257,20 +260,197 @@ describe('Office-Addin-Taskpane-Ts Outlook json project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[2].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.json is updated appropriately', async () => {
         const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestJsonFile);
         assert.equal(manifestInfo.hosts?.[0], "mail");
         assert.equal(manifestInfo.displayName, testProjectName); // TODO: update when new convert script is in yo-office template branches
+    });
+});
+
+// Test to verify converting a project to a single host
+// for Office-Addin-Taskpane Typescript project using Excel host and a json manifest
+describe('Office-Addin-Taskpane-Ts Excel json project', () => {
+    const testProjectName = "TaskpaneProject"
+    const expectedFiles = [
+        packageJsonFile,
+        manifestJsonFile,
+        'src/taskpane/taskpane.ts',
+        'src/taskpane/excel.ts',
+    ]
+    const unexpectedFiles = [
+        'src/taskpane/onenote.ts',
+        'src/taskpane/outlook.ts',
+        'src/taskpane/powerpoint.ts',
+        'src/taskpane/project.ts',
+        'src/taskpane/word.ts'
+    ]
+    const answers = {
+        projectType: "taskpane",
+        scriptType: "TypeScript",
+        name: testProjectName,
+        host: hosts[0],
+        manifestType: "json"
+    };
+
+    before((done) => {
+        log("Running helper for %s", answers.name);
+        helpers.run(path.join(__dirname, '../app')).withOptions({ 'test': true } as any).withAnswers(answers).on('end', () => { log("Finished helper for %s", answers.name);done();});
+    });
+
+    it('creates expected files', (done) => {
+        assert.file(expectedFiles);
+        assert.noFile(unexpectedFiles);
+        assert.noFile(unexpectedManifestFiles);
+        done();
+    });
+
+    it('Package.json is updated properly', async () => {
+        const data: string = await readFileAsync(packageJsonFile, 'utf8');
+        const content = JSON.parse(data);
+        assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
+
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
+        Object.keys(content.scripts).forEach(function (key) {
+            if (key.includes("sideload:") || key.includes("unload:")) {
+                unexpectedScriptsFound = true;
+            }
+        });
+        assert.equal(unexpectedScriptsFound, false);
+    });
+
+    it('Manifest.json is updated appropriately', async () => {
+        const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestJsonFile);
+        assert.equal(manifestInfo.hosts?.[0], "workbook");
+        assert.equal(manifestInfo.displayName, testProjectName);
+    });
+});
+
+// Test to verify converting a project to a single host
+// for Office-Addin-Taskpane Typescript project using Word host and a json manifest
+describe('Office-Addin-Taskpane-Ts Word json project', () => {
+    const testProjectName = "TaskpaneProject"
+    const expectedFiles = [
+        packageJsonFile,
+        manifestJsonFile,
+        'src/taskpane/taskpane.ts',
+        'src/taskpane/word.ts',
+    ]
+    const unexpectedFiles = [
+        'src/taskpane/excel.ts',
+        'src/taskpane/onenote.ts',
+        'src/taskpane/outlook.ts',
+        'src/taskpane/powerpoint.ts',
+        'src/taskpane/project.ts',
+    ]
+    const answers = {
+        projectType: "taskpane",
+        scriptType: "TypeScript",
+        name: testProjectName,
+        host: hosts[5],
+        manifestType: "json"
+    };
+
+    before((done) => {
+        log("Running helper for %s", answers.name);
+        helpers.run(path.join(__dirname, '../app')).withOptions({ 'test': true } as any).withAnswers(answers).on('end', () => { log("Finished helper for %s", answers.name);done();});
+    });
+
+    it('creates expected files', (done) => {
+        assert.file(expectedFiles);
+        assert.noFile(unexpectedFiles);
+        assert.noFile(unexpectedManifestFiles);
+        done();
+    });
+
+    it('Package.json is updated properly', async () => {
+        const data: string = await readFileAsync(packageJsonFile, 'utf8');
+        const content = JSON.parse(data);
+        assert.equal(content.config["app_to_debug"], hosts[5].toLowerCase());
+
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
+        Object.keys(content.scripts).forEach(function (key) {
+            if (key.includes("sideload:") || key.includes("unload:")) {
+                unexpectedScriptsFound = true;
+            }
+        });
+        assert.equal(unexpectedScriptsFound, false);
+    });
+
+    it('Manifest.json is updated appropriately', async () => {
+        const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestJsonFile);
+        assert.equal(manifestInfo.hosts?.[0], "document");
+        assert.equal(manifestInfo.displayName, testProjectName);
+    });
+});
+
+// Test to verify converting a project to a single host
+// for Office-Addin-Taskpane Typescript project using Powerpoint host and a json manifest
+describe('Office-Addin-Taskpane-Ts Powerpoint json project', () => {
+    const testProjectName = "TaskpaneProject"
+    const expectedFiles = [
+        packageJsonFile,
+        manifestJsonFile,
+        'src/taskpane/taskpane.ts',
+        'src/taskpane/powerpoint.ts',
+    ]
+    const unexpectedFiles = [
+        'src/taskpane/excel.ts',
+        'src/taskpane/onenote.ts',
+        'src/taskpane/outlook.ts',
+        'src/taskpane/project.ts',
+        'src/taskpane/word.ts'
+    ]
+    const answers = {
+        projectType: "taskpane",
+        scriptType: "TypeScript",
+        name: testProjectName,
+        host: hosts[3],
+        manifestType: "json"
+    };
+
+    before((done) => {
+        log("Running helper for %s", answers.name);
+        helpers.run(path.join(__dirname, '../app')).withOptions({ 'test': true } as any).withAnswers(answers).on('end', () => { log("Finished helper for %s", answers.name);done();});
+    });
+
+    it('creates expected files', (done) => {
+        assert.file(expectedFiles);
+        assert.noFile(unexpectedFiles);
+        assert.noFile(unexpectedManifestFiles);
+        done();
+    });
+
+    it('Package.json is updated properly', async () => {
+        const data: string = await readFileAsync(packageJsonFile, 'utf8');
+        const content = JSON.parse(data);
+        assert.equal(content.config["app_to_debug"], hosts[3].toLowerCase());
+
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
+        Object.keys(content.scripts).forEach(function (key) {
+            if (key.includes("sideload:") || key.includes("unload:")) {
+                unexpectedScriptsFound = true;
+            }
+        });
+        assert.equal(unexpectedScriptsFound, false);
+    });
+
+    it('Manifest.json is updated appropriately', async () => {
+        const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestJsonFile);
+        assert.equal(manifestInfo.hosts?.[0], "presentation");
+        assert.equal(manifestInfo.displayName, testProjectName);
     });
 });
 
@@ -282,11 +462,11 @@ describe('Office-Addin-Taskpane-Ts Outlook xml project', () => {
         packageJsonFile, 
         manifestXmlFile, 
         'src/taskpane/taskpane.ts', 
+        'src/taskpane/outlook.ts',
     ]
     const unexpectedFiles = [
         'src/taskpane/excel.ts', 
         'src/taskpane/onenote.ts', 
-        'src/taskpane/outlook.ts', 
         'src/taskpane/powerpoint.ts', 
         'src/taskpane/project.ts', 
         'src/taskpane/word.ts'
@@ -316,14 +496,14 @@ describe('Office-Addin-Taskpane-Ts Outlook xml project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[2].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -339,7 +519,7 @@ describe('Office-Addin-Taskpane-React-Ts project', () => {
     const expectedFiles = [
         packageJsonFile, 
         manifestXmlFile, 
-        'src/taskpane/components/App.tsx', , 
+        'src/taskpane/components/App.tsx', 
     ]
     const unexpectedFiles = [
         'src/taskpane/components/Excel.App.tsx', 
@@ -353,7 +533,8 @@ describe('Office-Addin-Taskpane-React-Ts project', () => {
         projectType: "react", 
         scriptType: "TypeScript", 
         name: "ReactProject", 
-        host: hosts[3]
+        host: hosts[3],
+        manifestType: "xml"
     };
 
     before((done) => {
@@ -373,14 +554,14 @@ describe('Office-Addin-Taskpane-React-Ts project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[3].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -397,9 +578,9 @@ describe('Office-Addin-Taskpane-Ts projects via cli', () => {
         packageJsonFile, 
         manifestXmlFile, 
         'src/taskpane/taskpane.ts', 
+        'src/taskpane/excel.ts',
     ]
     const unexpectedFiles = [
-        'src/taskpane/excel.ts', 
         'src/taskpane/onenote.ts', 
         'src/taskpane/outlook.ts', 
         'src/taskpane/powerpoint.ts', 
@@ -410,7 +591,8 @@ describe('Office-Addin-Taskpane-Ts projects via cli', () => {
         projectType: "taskpane", 
         name: testProjectName, 
         host: hosts[0], 
-        ts: true, 
+        ts: true,
+        manifestType: "xml",
         test: true
     };
     const answers = {};
@@ -432,115 +614,20 @@ describe('Office-Addin-Taskpane-Ts projects via cli', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
         const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestXmlFile);
         assert.equal(manifestInfo.hosts?.[0], "Workbook");
         assert.equal(manifestInfo.displayName, testProjectName);
-    });
-});
-
-// Test to verify converting a project to a single host
-// for SSO Typescript project using Excel host
-describe('Office-Addin-Taskpane-SSO-TS project', () => {
-    const expectedFiles = [
-        packageJsonFile, 
-        manifestXmlFile, 
-        '.ENV', 
-        'src/taskpane/taskpane.ts', 
-        'src/taskpane/taskpane.html', 
-        'src/taskpane/taskpane.css', 
-        'src/helpers/fallbackauthdialog.html', 
-        'src/helpers/fallbackauthdialog.ts', 
-        'src/helpers/message-helper.ts', 
-        'src/helpers/middle-tier-calls.ts', 
-        'src/helpers/sso-helper.ts', 
-        'src/middle-tier/app.ts', 
-        'src/middle-tier/msgraph-helper.ts', 
-        'src/middle-tier/ssoauth-helper.ts'
-    ]
-    const unexpectedFiles = [
-        'src/taskpane/excel.ts', 
-        'src/taskpane/word.ts', 
-        'src/taskpane/powerpoint.ts', 
-        'manifest.excel.xml', 
-        'manifest.word.xml', 
-        'manifest.powerpoint.xml'
-    ]
-    const answers = {
-        projectType: "single-sign-on", 
-        scriptType: "TypeScript", 
-        name: "SSOTypeScriptProject", 
-        host: hosts[0]
-    };
-
-    before((done) => {
-        log("Running helper for %s", answers.name);
-        helpers.run(path.join(__dirname, '../app')).withOptions({ 'test': true } as any).withAnswers(answers).on('end', () => { log("Finished helper for %s", answers.name);done();});
-    });
-
-    it('creates expected files', (done) => {
-        assert.file(expectedFiles);
-        assert.noFile(unexpectedFiles);
-        assert.noFile(unexpectedManifestFiles);
-        done();
-    });
-});
-
-// Test to verify converting a project to a single host
-// for SSO JavaScript project using PowerPoint host
-describe('Office-Addin-Taskpane-SSO-JS project', () => {
-    const expectedFiles = [
-        packageJsonFile, 
-        manifestXmlFile, 
-        '.ENV', 
-        'src/taskpane/taskpane.js', 
-        'src/taskpane/taskpane.html', 
-        'src/taskpane/taskpane.css', 
-        'src/helpers/documenthelper.js', 
-        'src/helpers/fallbackauthdialog.html', 
-        'src/helpers/fallbackauthdialog.js', 
-        'src/helpers/message-helper.js', 
-        'src/helpers/middle-tier-calls.js', 
-        'src/helpers/sso-helper.js', 
-        'src/middle-tier/app.js', 
-        'src/middle-tier/msgraph-helper.js', 
-        'src/middle-tier/ssoauth-helper.js'
-    ]
-    const unexpectedFiles = [
-        'src/taskpane/excel.js', 
-        'src/taskpane/word.js', 
-        'src/taskpane/powerpoint.js', 
-        'manifest.excel.xml', 
-        'manifest.word.xml', 
-        'manifest.powerpoint.xml'
-    ]
-    const answers = {
-        projectType: "single-sign-on", 
-        scriptType: "JavaScript", 
-        name: "SSOJavaScriptProject", 
-        host: hosts[3]
-    };
-
-    before((done) => {
-        log("Running helper for %s", answers.name);
-        helpers.run(path.join(__dirname, '../app')).withOptions({ 'test': true } as any).withAnswers(answers).on('end', () => { log("Finished helper for %s", answers.name);done();});
-    });
-
-    it('creates expected files', (done) => {
-        assert.file(expectedFiles);
-        assert.noFile(unexpectedFiles);
-        assert.noFile(unexpectedManifestFiles);
-        done();
     });
 });
 

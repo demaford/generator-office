@@ -473,8 +473,7 @@ export default class extends Generator {
     await this.log(`    ${chalk.yellow('react:')} Creates an 'Office add-in using React framework' project.`);
     await this.log(`    ${chalk.yellow('excel-functions-shared:')} Creates an 'Office add-in for Excel custom functions using a Shared Runtime' project.`);
     await this.log(`    ${chalk.yellow('excel-functions:')} Creates an 'Office add-in for Excel custom functions using a JavaScript-only Runtime' project.`);
-    await this.log(`    ${chalk.yellow('single-sign-on:')} Creates an 'Office Add-in Task Pane project supporting single sign-on' project.`);
-    await this.log(`    ${chalk.yellow('nested-app-auth:')} Creates an 'Office Add-in Task Pane project supporting Nested App Auth single sign-on (preview)' project.`);
+    await this.log(`    ${chalk.yellow('nested-app-auth:')} Creates an 'Office Add-in Task Pane project supporting Nested App Auth single sign-on' project.`);
     await this.log(`    ${chalk.yellow('manifest:')} Creates an only the manifest file for an Office add-in project.\n`);
     await this.log(`  ${chalk.bgGreen('name')}:Specifies the name for the project that will be created.\n`);
     await this.log(`  ${chalk.bgGreen('host')}:Specifies the host app in the add-in manifest. Valid hosts include:`);

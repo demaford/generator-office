@@ -13,9 +13,15 @@
                 }
             },
             "supportedHosts": {
+                "All": {
+                    "supportedManifestTypes": [
+                        "json"
+                    ]
+                },
                 "Excel": {
                     "supportedManifestTypes": [
-                        "xml"
+                        "xml",
+                        "json"
                     ]
                 },
                 "Onenote": {
@@ -31,7 +37,8 @@
                 },
                 "Powerpoint": {
                     "supportedManifestTypes": [
-                        "xml"
+                        "xml",
+                        "json"
                     ]
                 },
                 "Project": {
@@ -41,38 +48,7 @@
                 },
                 "Word": {
                     "supportedManifestTypes": [
-                        "xml"
-                    ]
-                }
-            }
-        },
-        "taskpane-preview": {
-            "displayname": "Excel, PowerPoint, and/or Word Task Pane with unified manifest for Microsoft 365 (preview)",
-            "templates": {
-                "typescript": {
-                    "repository": "https://github.com/OfficeDev/Office-Addin-TaskPane",
-                    "prerelease": "json-wxpo-preview",
-                    "branch": "json-wxpo-preview"
-                }
-            },
-            "supportedHosts": {
-                "All": {
-                    "supportedManifestTypes": [
-                        "json"
-                    ]
-                },
-                "Excel": {
-                    "supportedManifestTypes": [
-                        "json"
-                    ]
-                },
-                "Powerpoint": {
-                    "supportedManifestTypes": [
-                        "json"
-                    ]
-                },
-                "Word": {
-                    "supportedManifestTypes": [
+                        "xml",
                         "json"
                     ]
                 }
@@ -166,44 +142,8 @@
                 }
             }
         },
-        "single-sign-on": {
-            "displayname": "Office Add-in Task Pane project supporting single sign-on",
-            "templates": {
-                "javascript": {
-                    "repository": "https://github.com/OfficeDev/Office-Addin-TaskPane-SSO-JS",
-                    "branch": "release"
-                },
-                "typescript": {
-                    "repository": "https://github.com/OfficeDev/Office-Addin-Taskpane-SSO",
-                    "branch": "release"
-                }
-            },
-            "supportedHosts": {
-                "Excel": {
-                    "supportedManifestTypes": [
-                        "xml"
-                    ]
-                },
-                "Outlook": {
-                    "supportedManifestTypes": [
-                        "xml",
-                        "json"
-                    ]
-                },
-                "Powerpoint": {
-                    "supportedManifestTypes": [
-                        "xml"
-                    ]
-                },
-                "Word": {
-                    "supportedManifestTypes": [
-                        "xml"
-                    ]
-                }
-            }
-        },
         "nested-app-auth": {
-            "displayname": "Office Add-in Task Pane project supporting Nested App Auth single sign-on (preview)",
+            "displayname": "Office Add-in Task Pane project supporting Nested App Auth single sign-on",
             "templates": {
                 "typescript": {
                     "repository": "https://github.com/OfficeDev/Office-Addin-TaskPane-SSO-NAA",
