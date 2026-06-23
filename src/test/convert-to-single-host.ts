@@ -84,14 +84,14 @@ describe('Projects configured with proxy', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -143,14 +143,14 @@ describe('Office-Addin-Taskpane-Ts projects', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -202,14 +202,14 @@ describe('Office-Addin-Taskpane-Ts prerelease projects', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
     it('Manifest.xml is updated appropriately', async () => {
         const manifestInfo : ManifestInfo = await OfficeAddinManifest.readManifestFile(manifestXmlFile);
@@ -260,14 +260,14 @@ describe('Office-Addin-Taskpane-Ts Outlook json project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[2].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.json is updated appropriately', async () => {
@@ -319,14 +319,14 @@ describe('Office-Addin-Taskpane-Ts Excel json project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.json is updated appropriately', async () => {
@@ -378,14 +378,14 @@ describe('Office-Addin-Taskpane-Ts Word json project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[5].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.json is updated appropriately', async () => {
@@ -437,14 +437,14 @@ describe('Office-Addin-Taskpane-Ts Powerpoint json project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[3].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.json is updated appropriately', async () => {
@@ -496,14 +496,14 @@ describe('Office-Addin-Taskpane-Ts Outlook xml project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[2].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -554,14 +554,14 @@ describe('Office-Addin-Taskpane-React-Ts project', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[3].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
@@ -614,14 +614,14 @@ describe('Office-Addin-Taskpane-Ts projects via cli', () => {
         const content = JSON.parse(data);
         assert.equal(content.config["app_to_debug"], hosts[0].toLowerCase());
 
-        // Verify host-specific sideload and unload sripts have been removed
-        let unexexpectedScriptsFound = false;
+        // Verify host-specific sideload and unload scripts have been removed
+        let unexpectedScriptsFound = false;
         Object.keys(content.scripts).forEach(function (key) {
             if (key.includes("sideload:") || key.includes("unload:")) {
-                unexexpectedScriptsFound = true;
+                unexpectedScriptsFound = true;
             }
         });
-        assert.equal(unexexpectedScriptsFound, false);
+        assert.equal(unexpectedScriptsFound, false);
     });
 
     it('Manifest.xml is updated appropriately', async () => {
